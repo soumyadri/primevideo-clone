@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { Home } from './Component/Home/Home';
+import { Home } from './Component/Carousel/Carousel';
 import { Header } from './Component/Header/Header';
 
 function App() {

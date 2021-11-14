@@ -1,14 +1,30 @@
 import React from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
-import "./Home.css";
+import "./Carousel.css";
+import axios from "axios";
 
 export const Home = () => {
+    const [data, setData] = React.useState([]);
+    const [loading, setLoading] = React.useState(true);
+
+    React.useEffect(() => {
+        axios.get("http://localhost:8000/carousel")
+            .then(res => {
+                setData(res.data);
+                setLoading(false);
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    },[]);
+
     return (
         <div className="carousel-container">
             <Carousel autoPlay={true} interval={4000}>
+                
                 <div>
-                    <img style={{width: '99%'}} src="https://m.media-amazon.com/images/S/sonata-images-prod/PV_IN_AkkadBakkadLaunch/6f85b5c6-0208-4478-b1c5-68ac55d0df6a._UR3000,600_SX1500_FMwebp_.jpeg" />
+                    <img src="https://m.media-amazon.com/images/S/sonata-images-prod/PV_IN_AkkadBakkadLaunch/6f85b5c6-0208-4478-b1c5-68ac55d0df6a._UR3000,600_SX1500_FMwebp_.jpeg" />
                 </div>
                 <div>
                     <img src="https://m.media-amazon.com/images/S/sonata-images-prod/PV_IN_MaradonaS1Launch/3dc73e61-dc6f-4702-af7b-09cc269d3b32._UR3000,600_SX1500_FMwebp_.jpeg" />
@@ -26,6 +42,7 @@ export const Home = () => {
                 <div>
                     <img src="https://m.media-amazon.com/images/S/sonata-images-prod/PV_IN_Kdrama_VoiceLaunch/72a0da9a-71af-4175-b192-8b5e5461cb1e._UR3000,600_SX1500_FMwebp_.jpeg" />
                 </div>
+                
             </Carousel>
         </div>
     );
