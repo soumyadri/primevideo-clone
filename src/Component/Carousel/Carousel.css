@@ -1,0 +1,17 @@
+.thumbs-wrapper{
+    display: none;
+}
+.slider-wrapper{
+    width: 96%;
+    background-color: #0f181f;
+}
+.slide img{
+    width: 90%;
+    height: auto;
+}
+.carousel-container{
+    width: 92%;
+    background-color: #0f181f;
+    margin: auto;
+    padding: 0 4%;
+}
